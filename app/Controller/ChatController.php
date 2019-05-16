@@ -9,7 +9,7 @@ class ChatController extends AbstractController
     public function chat()
     {
         $this->view->render('chat' . DIRECTORY_SEPARATOR . 'chat.php', [
-            'title' => 'Flow'
+            'title' => 'Flux'
         ]);
     }
 }

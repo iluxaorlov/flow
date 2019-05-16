@@ -23,7 +23,7 @@ class UserController extends AbstractController
         }
 
         $this->view->render('user' . DIRECTORY_SEPARATOR . 'register.php', [
-            'title' => 'Регистрация • Flow'
+            'title' => 'Регистрация • Flux'
         ]);
     }
 
@@ -45,19 +45,19 @@ class UserController extends AbstractController
         }
 
         $this->view->render('user' . DIRECTORY_SEPARATOR . 'login.php', [
-            'title' => 'Вход • Flow'
+            'title' => 'Вход • Flux'
         ]);
     }
 
     private static function setCookie(User $user)
     {
         $token = $user->getToken();
-        setcookie('flow', $token, time() + (365 * 24 * 60 * 60), '/', '', false, true);
+        setcookie('flux', $token, time() + (365 * 24 * 60 * 60), '/', '', false, true);
     }
 
     public static function findUserByToken(): ?User
     {
-        $token = $_COOKIE['flow'] ?? '';
+        $token = $_COOKIE['flux'] ?? '';
 
         if ($token) {
             $user = User::findOneByToken($token);
