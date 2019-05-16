@@ -1,2 +1,2 @@
-# Flow
+# Flux
 Online anonimus group chat
