@@ -16,6 +16,6 @@
         <?php endif ?>
     </form>
     
-    <script src="js/form.js"></script>
+    <script src="/js/form.js"></script>
 
 <?php require_once __DIR__ . '/../footer.php' ?>
