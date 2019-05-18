@@ -12,9 +12,9 @@
         word-break: break-all;
         margin-bottom: 16px;
         margin-left: calc(16px + 51px);
-        border-radius: 16px 16px 0 16px;
+        border-radius: calc(51px / 2) calc(51px / 2) 0 calc(51px / 2);
         color: #ffffff;
-        background-color: $firstColor;
+        background-color: $mc;
     }
 
     .rx {
@@ -23,9 +23,9 @@
         word-break: break-all;
         margin-bottom: 16px;
         margin-right: calc(16px + 51px);
-        border-radius: 16px 16px 16px 0;
+        border-radius: calc(51px / 2) calc(51px / 2) calc(51px / 2) 0;
         color: #ffffff;
-        background-color: $secondColor;
+        background-color: $sc;
     }
 
     .px {
@@ -34,9 +34,9 @@
         word-break: break-all;
         margin-bottom: 16px;
         margin-left: calc(16px + 51px);
-        border-radius: 16px 16px 0 16px;
+        border-radius: calc(51px / 2) calc(51px / 2) 0 calc(51px / 2);
         color: #ffffff;
-        background-color: $firstColor;
+        background-color: $mc;
     }
 
     .ex {
@@ -45,7 +45,7 @@
         word-break: break-all;
         margin-bottom: 16px;
         margin-left: calc(16px + 51px);
-        border-radius: 16px 16px 0 16px;
+        border-radius: calc(51px / 2) calc(51px / 2) 0 calc(51px / 2);
         color: #ffffff;
         background-color: #ff0000;
     }

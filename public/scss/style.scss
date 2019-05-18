@@ -1,7 +1,7 @@
 $width: 480px;
-$backgroundColor: #17181a;
-$firstColor: #0080ff;
-$secondColor: #292e33;
+$bc: #17181a;
+$mc: #0080ff;
+$sc: #292e33;
 
 * {
     margin: 0;
@@ -10,7 +10,7 @@ $secondColor: #292e33;
     font-family: 'Roboto', sans-serif;
 
     body {
-        background-color: $backgroundColor;
+        background-color: $bc;
         margin-right: calc(100% - 100vw);
         overflow-x: hidden;
     }

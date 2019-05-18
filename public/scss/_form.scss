@@ -6,15 +6,15 @@
     padding: 0 16px;
 
     #form__login {
-        padding: 1em;
-        font-size: 1em;
-        border-radius: 1em 1em 0 0;
+        padding: 16px;
+        font-size: 16px;
+        border-radius: calc(51px / 2) calc(51px / 2) 0 0;
         border: none;
         color: #ffffff;
-        background-color: $secondColor;
+        background-color: $sc;
 
         &::placeholder {
-            color: $backgroundColor;
+            color: $bc;
         }
     }
 
@@ -22,17 +22,16 @@
         display: flex;
 
         #form__password__input {
-            padding: 1em;
-            font-size: 1em;
-            border-radius: 0 0 0 1em;
+            padding: 16px;
+            font-size: 16px;
             border-radius: 0;
             border: none;
             color: #ffffff;
-            background-color: $secondColor;
+            background-color: $sc;
             width: 100%;
 
             &::placeholder {
-                color: $backgroundColor;
+                color: $bc;
             }
         }
 
@@ -43,21 +42,20 @@
             justify-content: center;
             align-items: center;
             border: none;
-            background-color: $secondColor;
-            border-radius: 0 0 1em 0;
+            background-color: $sc;
             border-radius: 0;
             cursor: pointer;
-            color: #ffffff;
-            font-size: 1em;
+            color: $mc;
+            font-size: 16px;
         }
     }
 
     #form__submit {
-        padding: 1em;
-        font-size: 1em;
-        border-radius: 0 0 1em 1em;
+        padding: 16px;
+        font-size: 16px;
+        border-radius: 0 0 calc(51px / 2) calc(51px / 2);
         border: none;
-        background-color: $firstColor;
+        background-color: $mc;
         cursor: pointer;
         color: #ffffff;
     }
@@ -68,7 +66,7 @@
         padding: 16px;
 
         #form__invite__link {
-            color: $firstColor;
+            color: $mc;
             text-decoration: none;
         }
     }

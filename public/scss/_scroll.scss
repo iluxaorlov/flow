@@ -2,12 +2,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $secondColor;
-    color: #ffffff;
-    font-size: 1em;
+    background-color: $sc;
+    color: $mc;
+    font-size: 16px;
     width: 51px;
     height: 51px;
-    border-radius: 1em;
+    border-radius: calc(51px / 2);
     position: fixed;
     right: 16px;
     bottom: 69px;

@@ -7,13 +7,13 @@
         left: 0;
         right: 0;
         margin-right: calc(100% - 100vw);
-        background-color: $secondColor;
+        background-color: $sc;
     
         &::before {
             content: "";
             display: block;
             height: 1px;
-            background-color: $backgroundColor;
+            background-color: $bc;
         }
 
         #panel__input__container {
@@ -35,7 +35,7 @@
                 color: #ffffff;
     
                 &::placeholder {
-                    color: $backgroundColor;
+                    color: $bc;
                 }
             }
 
@@ -48,7 +48,7 @@
                 background: none;
                 border: none;
                 font-size: 16px;
-                color: $firstColor;
+                color: $mc;
                 cursor: pointer;
             }
         }
@@ -60,7 +60,7 @@
         left: 0;
         right: 0;
         margin-right: calc(100% - 100vw);
-        background-color: $firstColor;
+        background-color: $mc;
         text-align: center;
     
         #panel__button__link {
