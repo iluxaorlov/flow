@@ -3,9 +3,9 @@
 error_reporting(0);
 
 try {
-    require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
+    require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
     $route = $_GET['route'] ?? '';
-    $routes = require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'Settings' . DIRECTORY_SEPARATOR . 'Routes.php';
+    $routes = require_once __DIR__ . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'Settings' . DIRECTORY_SEPARATOR . 'Routes.php';
     
     foreach ($routes as $pattern => $controllerAndAction) {
         if (preg_match($pattern, $route, $matches)) {
@@ -14,7 +14,7 @@ try {
     }
     
     if (!$matches) {
-        throw new Exceptions\NotFoundException();
+        throw new \Exceptions\NotFoundException();
     }
 
     $controllerName = $controllerAndAction[0];
@@ -22,6 +22,6 @@ try {
     $controller = new $controllerName;
     $controller->$actionName($matches);
 
-} catch (Exceptions\NotFoundException $error) {
-    echo 'Ебобо?';
+} catch (\Exceptions\NotFoundException $error) {
+    header('Location: /');
 }
