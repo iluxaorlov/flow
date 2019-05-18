@@ -7,11 +7,15 @@
     <meta name="description" content="Анонимный групповой чат для свободного общения в Сети">
     <meta name="keywords" content="анонимный, групповой, чат, свободное, общение, мессенджер">
     <meta name="theme-color" content="#0080ff">
-    <title><?= $title ?></title>
+    <title>Страница не найдена</title>
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap">
 </head>
 <body>
+    <div id="logotype">
+        <a id="logotype__link" href="/"><img id="logotype__image" src="/img/logotype.png"></a>
+    </div>
+    <div id="code">
+        <img id="code__image" src="/img/code.png">
+    </div>
+</body>

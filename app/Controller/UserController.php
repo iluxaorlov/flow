@@ -37,7 +37,7 @@ class UserController extends AbstractController
                 return;
             } catch (\Exceptions\InvalidArgumentException $error) {
                 $this->view->render('user' . DIRECTORY_SEPARATOR . 'login.php', [
-                    'title' => 'Вход • Flow',
+                    'title' => 'Войти • Flow',
                     'error' => $error->getMessage()
                 ]);
                 return;
@@ -45,7 +45,7 @@ class UserController extends AbstractController
         }
 
         $this->view->render('user' . DIRECTORY_SEPARATOR . 'login.php', [
-            'title' => 'Вход • Flux'
+            'title' => 'Войти • Flux'
         ]);
     }
 

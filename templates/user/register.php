@@ -1,7 +1,7 @@
 <?php require_once __DIR__ . '/../header.php' ?>
 
     <div id="logotype">
-        <img id="logotype__image" src="img/logotype.png">
+        <a id="logotype__link" href="/"><img id="logotype__image" src="/img/logotype.png"></a>
     </div>
     <form id="form" action="/register" method="POST">
         <input id="form__login" name="login" type="text" placeholder="Логин" value="<?= $_POST['login'] ?>">

@@ -1,0 +1,52 @@
+#chat {
+    display: flex;
+    flex-direction: column-reverse;
+    max-width: $width;
+    margin: 0 auto;
+    padding: 16px;
+    padding-bottom: 0;
+
+    .tx {
+        padding: 16px;
+        font-size: 16px;
+        word-break: break-all;
+        margin-bottom: 16px;
+        margin-left: calc(16px + 51px);
+        border-radius: 16px 16px 0 16px;
+        color: #ffffff;
+        background-color: $firstColor;
+    }
+
+    .rx {
+        padding: 16px;
+        font-size: 16px;
+        word-break: break-all;
+        margin-bottom: 16px;
+        margin-right: calc(16px + 51px);
+        border-radius: 16px 16px 16px 0;
+        color: #ffffff;
+        background-color: $secondColor;
+    }
+
+    .px {
+        padding: 16px;
+        font-size: 16px;
+        word-break: break-all;
+        margin-bottom: 16px;
+        margin-left: calc(16px + 51px);
+        border-radius: 16px 16px 0 16px;
+        color: #ffffff;
+        background-color: $firstColor;
+    }
+
+    .ex {
+        padding: 16px;
+        font-size: 16px;
+        word-break: break-all;
+        margin-bottom: 16px;
+        margin-left: calc(16px + 51px);
+        border-radius: 16px 16px 0 16px;
+        color: #ffffff;
+        background-color: #ff0000;
+    }
+}

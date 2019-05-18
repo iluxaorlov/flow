@@ -1,0 +1,95 @@
+#form {
+    display: flex;
+    flex-direction: column;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 0 16px;
+
+    #form__login {
+        padding: 1em;
+        font-size: 1em;
+        border-radius: 1em 1em 0 0;
+        border: none;
+        color: #ffffff;
+        background-color: $secondColor;
+
+        &::placeholder {
+            color: $backgroundColor;
+        }
+    }
+
+    #form__password {
+        display: flex;
+
+        #form__password__input {
+            padding: 1em;
+            font-size: 1em;
+            border-radius: 0 0 0 1em;
+            border-radius: 0;
+            border: none;
+            color: #ffffff;
+            background-color: $secondColor;
+            width: 100%;
+
+            &::placeholder {
+                color: $backgroundColor;
+            }
+        }
+
+        #form__password__button {
+            height: 51px;
+            min-width: 51px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            background-color: $secondColor;
+            border-radius: 0 0 1em 0;
+            border-radius: 0;
+            cursor: pointer;
+            color: #ffffff;
+            font-size: 1em;
+        }
+    }
+
+    #form__submit {
+        padding: 1em;
+        font-size: 1em;
+        border-radius: 0 0 1em 1em;
+        border: none;
+        background-color: $firstColor;
+        cursor: pointer;
+        color: #ffffff;
+    }
+
+    #form__invite {
+        text-align: center;
+        color: #ffffff;
+        padding: 16px;
+
+        #form__invite__link {
+            color: $firstColor;
+            text-decoration: none;
+        }
+    }
+
+    #form__error {
+        text-align: center;
+        color: #ff0000;
+    }
+}
+
+#logotype {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    #logotype__link {
+        display: flex;
+        margin: 51px;
+
+        #logotype__image {
+            height: 51px;
+        }
+    }
+}

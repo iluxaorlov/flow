@@ -1,0 +1,31 @@
+#scroll {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $secondColor;
+    color: #ffffff;
+    font-size: 1em;
+    width: 51px;
+    height: 51px;
+    border-radius: 1em;
+    position: fixed;
+    right: 16px;
+    bottom: 69px;
+    cursor: pointer;
+    border: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 250ms linear;
+}
+
+#notification {
+    position: fixed;
+    right: 16px;
+    bottom: calc(69px + 51px - 4px);
+    background-color: #ff0000;
+    width: 4px;
+    height: 4px;
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity 250ms linear;
+}

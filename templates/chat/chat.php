@@ -20,13 +20,13 @@
         
     </div>
 
-    <script src="/public/js/app.js"></script>
-    <script src="/public/js/pull.js"></script>
-    <script src="/public/js/load.js"></script>
-    <script src="/public/js/scroll.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/pull.js"></script>
+    <script src="/js/load.js"></script>
+    <script src="/js/scroll.js"></script>
 
     <?php if ($authorizedUser): ?>
-    <script src="/public/js/send.js"></script>
+    <script src="/js/send.js"></script>
     <?php endif ?>
 
 <?php require_once __DIR__ . '/../footer.php' ?>
