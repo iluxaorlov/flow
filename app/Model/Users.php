@@ -4,9 +4,9 @@ namespace Model;
 
 use Database\Database;
 
-class User extends Record
+class Users extends Record
 {
-    protected $login;
+    protected $nickname;
     protected $password;
     protected $token;
 
@@ -15,14 +15,14 @@ class User extends Record
         return 'users';
     }
 
-    public function getLogin(): string
+    public function getNickname(): string
     {
-        return $this->login;
+        return $this->nickname;
     }
 
-    public function setLogin(string $login)
+    public function setNickname(string $nickname)
     {
-        $this->login = $login;
+        $this->nickname = $nickname;
     }
 
     public function getPassword(): string
@@ -47,19 +47,19 @@ class User extends Record
 
     public static function register(array $requestFields): self
     {
-        $login = htmlentities(strtolower(trim($requestFields['login'])));
+        $nickname = htmlentities(strtolower(trim($requestFields['nickname'])));
         $password = htmlentities($requestFields['password']);
 
-        if (!$login) {
+        if (!$nickname) {
             throw new \Exceptions\InvalidArgumentException('Заполните все поля');
         }
 
-        if (!preg_match('/^[a-zA-Z0-9]+$/', $login)) {
-            throw new \Exceptions\InvalidArgumentException('Логин должен содержать только латинские буквы и цифры');
+        if (!preg_match('/^[a-zA-Z0-9]+$/', $nickname)) {
+            throw new \Exceptions\InvalidArgumentException('Имя должно содержать только латинские буквы и цифры');
         }
 
-        if (self::findOneByLogin($login)) {
-            throw new \Exceptions\InvalidArgumentException('Пользователь с таким логином уже существует');
+        if (self::findOneByNickname($nickname)) {
+            throw new \Exceptions\InvalidArgumentException('Пользователь с таким именем уже существует');
         }
 
         if (!$password) {
@@ -71,7 +71,7 @@ class User extends Record
         }
 
         $user = new self;
-        $user->login = $login;
+        $user->nickname = $nickname;
         $user->password = password_hash($password, PASSWORD_DEFAULT);
         $user->token = self::generateToken();
         $user->write();
@@ -80,10 +80,10 @@ class User extends Record
 
     public static function login(array $requestFields): self
     {
-        $login = htmlentities(strtolower(trim($requestFields['login'])));
+        $nickname = htmlentities(strtolower(trim($requestFields['nickname'])));
         $password = htmlentities($requestFields['password']);
 
-        if (!$login) {
+        if (!$nickname) {
             throw new \Exceptions\InvalidArgumentException('Заполните все поля');
         }
 
@@ -91,7 +91,7 @@ class User extends Record
             throw new \Exceptions\InvalidArgumentException('Заполните все поля');
         }
 
-        $user = self::findOneByLogin($login);
+        $user = self::findOneByNickname($nickname);
 
         if (!$user) {
             throw new \Exceptions\InvalidArgumentException('Неверный логин или пароль');
@@ -117,11 +117,11 @@ class User extends Record
         }
     }
 
-    private static function findOneByLogin(string $login): ?self
+    private static function findOneByNickname(string $nickname): ?self
     {
         $database = Database::getInstance();
-        $sql = 'SELECT * FROM ' . self::getTableName() . ' WHERE login = :login;';
-        $result = $database->query($sql, [':login' => $login], self::class);
+        $sql = 'SELECT * FROM ' . self::getTableName() . ' WHERE nickname = :nickname;';
+        $result = $database->query($sql, [':nickname' => $nickname], self::class);
 
         if (!$result) {
             return null;

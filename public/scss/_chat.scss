@@ -7,45 +7,49 @@
     padding-bottom: 0;
 
     .tx {
+        align-self: flex-end;
         padding: 16px;
         font-size: 16px;
         word-break: break-all;
         margin-bottom: 16px;
         margin-left: calc(16px + 51px);
-        border-radius: calc(51px / 2) calc(51px / 2) 0 calc(51px / 2);
+        border-radius: 16px 16px 0 16px;
+        color: #ffffff;
+        background-color: $mc;
+    }
+
+    .px {
+        align-self: flex-end;
+        padding: 16px;
+        font-size: 16px;
+        word-break: break-all;
+        margin-bottom: 16px;
+        margin-left: calc(16px + 51px);
+        border-radius: 16px 16px 0 16px;
         color: #ffffff;
         background-color: $mc;
     }
 
     .rx {
+        align-self: flex-start;
         padding: 16px;
         font-size: 16px;
         word-break: break-all;
         margin-bottom: 16px;
         margin-right: calc(16px + 51px);
-        border-radius: calc(51px / 2) calc(51px / 2) calc(51px / 2) 0;
+        border-radius: 16px 16px 16px 0;
         color: #ffffff;
         background-color: $sc;
     }
 
-    .px {
-        padding: 16px;
-        font-size: 16px;
-        word-break: break-all;
-        margin-bottom: 16px;
-        margin-left: calc(16px + 51px);
-        border-radius: calc(51px / 2) calc(51px / 2) 0 calc(51px / 2);
-        color: #ffffff;
-        background-color: $mc;
-    }
-
     .ex {
+        align-self: flex-end;
         padding: 16px;
         font-size: 16px;
         word-break: break-all;
         margin-bottom: 16px;
         margin-left: calc(16px + 51px);
-        border-radius: calc(51px / 2) calc(51px / 2) 0 calc(51px / 2);
+        border-radius: 16px 16px 0 16px;
         color: #ffffff;
         background-color: #ff0000;
     }

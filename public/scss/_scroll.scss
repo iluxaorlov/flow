@@ -3,14 +3,14 @@
     justify-content: center;
     align-items: center;
     background-color: $sc;
-    color: $mc;
+    color: $bc;
     font-size: 16px;
     width: 51px;
     height: 51px;
-    border-radius: calc(51px / 2);
+    border-radius: 16px;
     position: fixed;
     right: 16px;
-    bottom: 69px;
+    bottom: 67px;
     cursor: pointer;
     border: none;
     visibility: hidden;
@@ -21,11 +21,11 @@
 #notification {
     position: fixed;
     right: 16px;
-    bottom: calc(69px + 51px - 4px);
+    bottom: calc(67px + 51px - 4px);
     background-color: #ff0000;
     width: 4px;
     height: 4px;
-    border-radius: 2px;
+    border-radius: 100%;
     opacity: 0;
     transition: opacity 250ms linear;
 }

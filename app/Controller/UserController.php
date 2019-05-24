@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-use Model\User;
+use Model\Users;
 
 class UserController extends AbstractController
 {
@@ -10,7 +10,7 @@ class UserController extends AbstractController
     {
         if ($_POST) {
             try {
-                $user = User::register($_POST);
+                $user = Users::register($_POST);
                 $this->login($_POST);
                 return;
             } catch (\Exceptions\InvalidArgumentException $error) {
@@ -31,7 +31,7 @@ class UserController extends AbstractController
     {
         if ($_POST) {
             try {
-                $user = User::login($_POST);
+                $user = Users::login($_POST);
                 self::setCookie($user);
                 header('Location: /');
                 return;
@@ -49,18 +49,18 @@ class UserController extends AbstractController
         ]);
     }
 
-    private static function setCookie(User $user)
+    private static function setCookie(Users $user)
     {
         $token = $user->getToken();
         setcookie('flux', $token, time() + (365 * 24 * 60 * 60), '/', '', false, true);
     }
 
-    public static function findUserByToken(): ?User
+    public static function findUserByToken(): ?Users
     {
         $token = $_COOKIE['flux'] ?? '';
 
         if ($token) {
-            $user = User::findOneByToken($token);
+            $user = Users::findOneByToken($token);
             return $user;
         } else {
             return null;

@@ -1,6 +1,8 @@
 'use strict';
 
-let scroll = function() {
+import app from './app.js';
+
+export default function scroll() {
 
     window.addEventListener('scroll', function() {
         if (window.scrollY <= document.documentElement.scrollHeight - window.innerHeight - window.innerHeight) {
@@ -10,7 +12,7 @@ let scroll = function() {
         }
 
         if (window.scrollY >= document.documentElement.scrollHeight - window.innerHeight) {
-            app.notification.style.opacity = 0;
+            app.scrollButtonNotification.style.opacity = 0;
             app.scrollButton.style.opacity = 0;
             app.scrollButton.disabled = true;
             
@@ -30,4 +32,4 @@ let scroll = function() {
         }, 1000 / 240);
     });
 
-}();
+}

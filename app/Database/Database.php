@@ -11,11 +11,11 @@ class Database
     {
         $settings = require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Settings' . DIRECTORY_SEPARATOR . 'Database.php';
 
-        $this->pdo = new \PDO('mysql:host=' . $settings['host'] . ';dbname=' . $settings['dbname'] . ';charset=utf8',
+        $this->pdo = new \PDO('mysql:host=' . $settings['host'] . ';dbname=' . $settings['dbname'] . ';charset=utf8mb4',
             $settings['user'],
             $settings['pass']
         );
-        $this->pdo->exec('SET NAMES UTF8');
+        $this->pdo->exec('SET NAMES utf8mb4');
     }
 
     public static function getInstance(): self

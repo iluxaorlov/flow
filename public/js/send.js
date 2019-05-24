@@ -1,22 +1,24 @@
 'use strict';
 
-let send = function() {
+import app from './app.js';
 
+export default function() {
+    
     document.getElementById('panel__input__button').addEventListener('click', function() {
-        if (app.textField.value === '') {
-            app.textField.focus();
+        if (app.panelTextField.value === '') {
+            app.panelTextField.focus();
             return;
         }
 
-        send(app.textField.value);
+        send(app.panelTextField.value);
     });
 
-    app.textField.addEventListener('input', function() {
-        app.autosize();
-        app.scroll();
+    app.panelTextField.addEventListener('input', function() {
+        app.textFieldAutosize();
+        app.scrollToBottom();
     });
-    
-    app.textField.addEventListener('keydown', function(event) {
+
+    app.panelTextField.addEventListener('keydown', function(event) {
         if (event.keyCode === 13) {
             event.preventDefault();
             send(this.value);
@@ -28,14 +30,6 @@ let send = function() {
         let xhr = new XMLHttpRequest();
         let data = new FormData();
         data.append('text', text);
-
-        xhr.onreadystatechange = function() {
-            if (this.readyState !== 4) return;
-
-            if (this.status === 200) {
-                app.lastSendMessage = message;
-            }
-        }
 
         xhr.onerror = function() {
             this.abort();
@@ -59,11 +53,11 @@ let send = function() {
             return;
         }
 
-        let message = document.createElement('p');
+        let message = document.createElement('div');
         message.className = 'px';
         message.innerText = text;
         app.chat.insertBefore(message, app.chat.firstChild);
-        reset();
+        app.textFieldReset();
         return message;
     }
 
@@ -79,12 +73,4 @@ let send = function() {
         return text;
     }
 
-    function reset() {
-        app.textField.blur();
-        app.textField.value = '';
-        app.textField.focus();
-        app.autosize();
-        app.scroll();
-    }
-
-}();
+}

@@ -2,9 +2,10 @@
 
 namespace Model;
 
+use Model\Users;
 use Database\Database;
 
-class Message extends Record
+class Messages extends Record
 {
     protected $user;
     protected $text;
@@ -15,12 +16,12 @@ class Message extends Record
         return 'messages';
     }
 
-    public function getUser(): User
+    public function getUser(): Users
     {
-        return User::findOneById($this->user);
+        return Users::findOneById($this->user);
     }
 
-    public function setUser(User $user)
+    public function setUser(Users $user)
     {
         $this->user = $user->getId();
     }
@@ -45,7 +46,7 @@ class Message extends Record
         $this->date = $date;
     }
 
-    public function send(User $user, string $text): self
+    public function send(Users $user, string $text): self
     {
         $message = new self;
         $message->setUser($user);

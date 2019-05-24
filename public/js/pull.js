@@ -1,6 +1,8 @@
 'use strict';
 
-let pull = function() {
+import app from './app.js';
+
+export default function() {
 
     let countPull = 0;
     let isBottom = true;
@@ -34,23 +36,23 @@ let pull = function() {
         xhr.send(data);
     }
 
-    function create(responseText) {
-        if (app.lastSendMessage) {
-            app.lastSendMessage.remove();
+    function create(response) {
+        while (document.getElementsByClassName('px')[0]) {
+            document.getElementsByClassName('px')[0].remove();
         }
 
-        app.chat.insertAdjacentHTML('afterbegin', responseText);
+        app.chat.insertAdjacentHTML('afterbegin', response);
 
         if (isBottom) {
-            app.scroll();
+            app.scrollToBottom();
         } else {
             app.scrollButton.style.visibility = 'visible';
-            app.notification.style.opacity = 1;
+            app.scrollButtonNotification.style.opacity = 1;
             app.scrollButton.style.opacity = 1;
             app.scrollButton.disabled = false;
         }
     }
 
     pull();
-    
-}();
+
+}

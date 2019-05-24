@@ -1,10 +1,7 @@
 <?php require_once __DIR__ . '/../header.php' ?>
 
     <div id="chat"></div>
-    <button id="scroll"><i class="fas fa-arrow-down"></i></button>
-    <div id="notification"></div>
     <div id="panel">
-
         <?php if ($authorizedUser): ?>
         <div id="panel__input">
             <div id="panel__input__container">
@@ -16,17 +13,9 @@
         <div id="panel__button">
             <a id="panel__button__link" href="/login">Присоединиться</a>
         </div>
-        <?php endif ?>
-        
+        <?php endif ?>     
     </div>
-
-    <script src="/js/app.js"></script>
-    <script src="/js/pull.js"></script>
-    <script src="/js/load.js"></script>
-    <script src="/js/scroll.js"></script>
-
-    <?php if ($authorizedUser): ?>
-    <script src="/js/send.js"></script>
-    <?php endif ?>
+    <button id="scroll"><i class="fas fa-arrow-down"></i></button>
+    <div id="notification"></div>
 
 <?php require_once __DIR__ . '/../footer.php' ?>

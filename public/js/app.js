@@ -1,37 +1,47 @@
 'use strict';
 
-let app = function() {
+import load from './load.js';
+import pull from './pull.js';
+import scroll from './scroll.js';
+import send from './send.js';
 
-    let lastSendMessage;
-    let chat = document.getElementById('chat');
-    let scrollButton = document.getElementById('scroll');
-    let notification = document.getElementById('notification');
-    let panel = document.getElementById('panel');
-    let textField = document.getElementById('panel__input__field');
+export default (function() {
 
     return {
-        lastSendMessage: lastSendMessage,
-        chat: chat,
-        scrollButton: scrollButton,
-        notification: notification,
-        panel: panel,
-        textField: textField,
+        chat: document.getElementById('chat'),
+        scrollButton: document.getElementById('scroll'),
+        scrollButtonNotification: document.getElementById('notification'),
+        panel: document.getElementById('panel'),
+        panelTextField: document.getElementById('panel__input__field'),
 
-        scroll: function() {
-            let scroll = setInterval(function() {
-                window.scrollBy(0, document.documentElement.scrollHeight - window.innerHeight - window.scrollY);
-            });
+        scrollToBottom: function() {
+            let scrollToBottom = setInterval(function() {
+                window.scrollTo(0, document.documentElement.scrollHeight - window.innerHeight);
 
-            window.addEventListener('scroll', function() {
-                clearInterval(scroll);
+                setTimeout(function() {
+                    clearInterval(scrollToBottom);
+                }, 250);
             });
         },
 
-        autosize: function() {
-            textField.style.height = 19 + 'px';
-            textField.style.height = textField.scrollHeight - 32 + 'px';
-            panel.style.height = textField.scrollHeight + 'px';
+        textFieldAutosize: function() {
+            this.panelTextField.style.height = 19 + 'px';
+            this.panelTextField.style.height = this.panelTextField.scrollHeight - 32 + 'px';
+            this.panel.style.height = this.panelTextField.scrollHeight + 'px';
+        },
+
+        textFieldReset: function() {
+            this.panelTextField.blur();
+            this.panelTextField.value = '';
+            this.panelTextField.focus();
+            this.textFieldAutosize();
+            this.scrollToBottom();
         }
     };
 
-}();
+})();
+
+load();
+pull();
+scroll();
+send();

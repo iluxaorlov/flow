@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-use Model\Message;
+use Model\Messages;
 
 class MessageController extends AbstractController
 {
@@ -18,7 +18,7 @@ class MessageController extends AbstractController
 
         $user = $this->authorizedUser;
         $text = $_POST['text'];
-        $message = Message::send($user, $text);
+        $message = Messages::send($user, $text);
     }
 
     /**
@@ -34,21 +34,15 @@ class MessageController extends AbstractController
         if (!$_POST) {
             throw new \Exceptions\NotFoundException();
         }
-
-        $server = (integer) Message::countPull();
-        $client = (integer) $_POST['countPull'];
-
-        while ($server === $client) {
-            $server = (integer) Message::countPull();
-        }
-
-        $limit = $server - $client;
-
-        if ($client === 0) {
-            $limit = 128;
-        }
         
-        $messages = Message::pull($limit);
+        $client = (integer)$_POST['countPull'];
+
+        do {
+            $server = (integer)Messages::countPull();
+        } while ($server === $client);
+
+        $limit = $server - $client ?? 128;
+        $messages = Messages::pull($limit);
 
         if (!$messages) {
             return;
@@ -73,8 +67,8 @@ class MessageController extends AbstractController
         }
 
         $limit = 64;
-        $offset = (integer) $_POST['offset'];
-        $messages = Message::load($limit, $offset);
+        $offset = (integer)$_POST['offset'];
+        $messages = Messages::load($limit, $offset);
 
         if (!$messages) {
             return;

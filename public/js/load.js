@@ -1,6 +1,8 @@
 'use strict';
 
-let load = function() {
+import app from './app.js';
+
+export default function() {
 
     window.addEventListener('scroll', function() {
         if (scrollY === 0) {
@@ -33,5 +35,5 @@ let load = function() {
         app.chat.insertAdjacentHTML('beforeend', response);
         window.scrollTo(0, document.documentElement.scrollHeight - lastPosition);
     }
-    
-}();
+
+}
