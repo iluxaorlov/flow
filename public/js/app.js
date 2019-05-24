@@ -1,5 +1,6 @@
 'use strict';
 
+import form from './form.js';
 import load from './load.js';
 import pull from './pull.js';
 import scroll from './scroll.js';
@@ -41,6 +42,7 @@ export default (function() {
 
 })();
 
+form();
 load();
 pull();
 scroll();

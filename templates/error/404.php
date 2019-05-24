@@ -8,7 +8,7 @@
     <meta name="keywords" content="анонимный, групповой, чат, свободное, общение, мессенджер">
     <meta name="theme-color" content="#0080ff">
     <title>Страница не найдена</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap">
 </head>
 <body>
