@@ -34,12 +34,13 @@ abstract class Record
 
     private static function generateId(): string
     {
-        $id = bin2hex(random_bytes(64));
+        while (true) {
+            $id = bin2hex(random_bytes(64));
+            $user = self::findOneById($id);
 
-        if (self::findOneById($id)) {
-            return self::generateId();
-        } else {
-            return $id;
+            if (!$user) {
+                return $id;
+            }
         }
     }
 
