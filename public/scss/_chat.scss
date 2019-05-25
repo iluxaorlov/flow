@@ -1,3 +1,13 @@
+%message {
+    padding: 16px;
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 16px;
+    word-wrap: break-word;
+    background-color: $mc;
+    max-width: calc(100% - 99px);
+}
+
 #chat {
     display: flex;
     flex-direction: column-reverse;
@@ -7,50 +17,24 @@
     padding-bottom: 0;
 
     .tx {
+        @extend %message;
         align-self: flex-end;
-        padding: 16px;
-        font-size: 16px;
-        word-break: break-all;
-        margin-bottom: 16px;
-        margin-left: calc(16px + 51px);
         border-radius: 16px 16px 0 16px;
-        color: #ffffff;
-        background-color: $mc;
     }
 
     .px {
-        align-self: flex-end;
-        padding: 16px;
-        font-size: 16px;
-        word-break: break-all;
-        margin-bottom: 16px;
-        margin-left: calc(16px + 51px);
-        border-radius: 16px 16px 0 16px;
-        color: #ffffff;
-        background-color: $mc;
+        @extend .tx
     }
 
     .rx {
+        @extend %message;
         align-self: flex-start;
-        padding: 16px;
-        font-size: 16px;
-        word-break: break-all;
-        margin-bottom: 16px;
-        margin-right: calc(16px + 51px);
         border-radius: 16px 16px 16px 0;
-        color: #ffffff;
         background-color: $sc;
     }
 
     .ex {
-        align-self: flex-end;
-        padding: 16px;
-        font-size: 16px;
-        word-break: break-all;
-        margin-bottom: 16px;
-        margin-left: calc(16px + 51px);
-        border-radius: 16px 16px 0 16px;
-        color: #ffffff;
+        @extend .tx;
         background-color: #ff0000;
     }
 }

@@ -53,7 +53,7 @@ export default function() {
             return;
         }
 
-        let message = document.createElement('div');
+        let message = document.createElement('p');
         message.className = 'px';
         message.innerText = text;
         app.chat.insertBefore(message, app.chat.firstChild);

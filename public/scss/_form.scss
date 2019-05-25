@@ -1,3 +1,18 @@
+#logotype {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    #logotype__link {
+        display: flex;
+        margin: 51px;
+
+        #logotype__image {
+            height: 51px;
+        }
+    }
+}
+
 #form {
     display: flex;
     flex-direction: column;
@@ -5,7 +20,7 @@
     margin: 0 auto;
     padding: 0 16px;
 
-    #form__nickname {
+    #nickname {
         padding: 16px;
         font-size: 16px;
         border-radius: 16px 16px 0 0;
@@ -18,10 +33,27 @@
         }
     }
 
-    #form__password {
+    #password {
+        padding: 16px;
+        font-size: 16px;
+        border-radius: 0;
+        border: none;
+        color: #ffffff;
+        background-color: $sc;
+
+        &::placeholder {
+            color: $bc;
+        }
+    }
+
+    #repeat {
+        @extend #password;
+    }
+
+    #password__section {
         display: flex;
 
-        #form__password__input {
+        #password__section__input {
             padding: 16px;
             font-size: 16px;
             border-radius: 0;
@@ -35,7 +67,7 @@
             }
         }
 
-        #form__password__button {
+        #password__section__show {
             height: 51px;
             min-width: 51px;
             display: flex;
@@ -50,7 +82,7 @@
         }
     }
 
-    #form__submit {
+    #submit {
         padding: 16px;
         font-size: 16px;
         border-radius: 0 0 16px 16px;
@@ -74,20 +106,5 @@
     #form__error {
         text-align: center;
         color: #ff0000;
-    }
-}
-
-#logotype {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    #logotype__link {
-        display: flex;
-        margin: 51px;
-
-        #logotype__image {
-            height: 51px;
-        }
     }
 }

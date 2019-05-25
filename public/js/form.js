@@ -2,11 +2,11 @@
 
 export default function form() {
 
-    let showPassword = document.getElementById('form__password__button');
+    let showPassword = document.getElementById('password__section__show');
 
     if (showPassword) {
         showPassword.addEventListener('click', function() {
-            let passwordField = document.getElementById('form__password__input');
+            let passwordField = document.getElementById('password__section__input');
 
             if (passwordField.type === 'password') {
                 passwordField.type = 'text';

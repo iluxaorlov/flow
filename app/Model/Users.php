@@ -49,6 +49,7 @@ class Users extends Record
     {
         $nickname = htmlentities(strtolower(trim($requestFields['nickname'])));
         $password = htmlentities($requestFields['password']);
+        $repeat = htmlentities($requestFields['repeat']);
 
         if (!$nickname) {
             throw new \Exceptions\InvalidArgumentException('Заполните все поля');
@@ -68,6 +69,10 @@ class Users extends Record
 
         if (mb_strlen($password) < 8) {
             throw new \Exceptions\InvalidArgumentException('Пароль должен состоять минимум из восьми символов');
+        }
+
+        if ($password !== $repeat) {
+            throw new \Exceptions\InvalidArgumentException('Пароли не совпадают');
         }
 
         $user = new self;

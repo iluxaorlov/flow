@@ -1,7 +1,7 @@
 <?php foreach ($messages as $message): ?>
 <?php if ($authorizedUser && $authorizedUser->getId() === $message->getUser()->getId()): ?>
-<div class="tx"><?= $message->getText() ?></div>
+<p class="tx"><?= $message->getText() ?></p>
 <?php else: ?>
-<div class="rx"><?= $message->getText() ?></div>
+<p class="rx"><?= $message->getText() ?></p>
 <?php endif ?>
 <?php endforeach ?>

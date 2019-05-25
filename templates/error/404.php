@@ -12,10 +12,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap">
 </head>
 <body>
-    <div id="logotype">
+    <header id="logotype">
         <a id="logotype__link" href="/"><img id="logotype__image" src="/img/logotype.png"></a>
-    </div>
-    <div id="code">
+    </header>
+    <section id="code">
         <img id="code__image" src="/img/code.png">
-    </div>
+    </section>
 </body>
+</html>
