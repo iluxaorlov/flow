@@ -1,8 +1,8 @@
 <?php
 
-namespace Controller;
+namespace App\Controller;
 
-use Model\Users;
+use App\Model\Users;
 
 class UserController extends AbstractController
 {
@@ -13,7 +13,7 @@ class UserController extends AbstractController
                 $user = Users::register($_POST);
                 $this->login($_POST);
                 return;
-            } catch (\Exceptions\InvalidArgumentException $error) {
+            } catch (\App\Exceptions\InvalidArgumentException $error) {
                 $this->view->render('user' . DIRECTORY_SEPARATOR . 'register.php', [
                     'title' => 'Регистрация • Flow',
                     'error' => $error->getMessage()
@@ -35,7 +35,7 @@ class UserController extends AbstractController
                 self::setCookie($user);
                 header('Location: /');
                 return;
-            } catch (\Exceptions\InvalidArgumentException $error) {
+            } catch (\App\Exceptions\InvalidArgumentException $error) {
                 $this->view->render('user' . DIRECTORY_SEPARATOR . 'login.php', [
                     'title' => 'Войти • Flow',
                     'error' => $error->getMessage()

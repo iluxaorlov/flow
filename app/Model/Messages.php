@@ -1,9 +1,9 @@
 <?php
 
-namespace Model;
+namespace App\Model;
 
-use Model\Users;
-use Database\Database;
+use App\Model\Users;
+use App\Database\Database;
 
 class Messages extends Record
 {
@@ -58,10 +58,7 @@ class Messages extends Record
 
     private static function formatText(string $text): ?string
     {
-        $text = trim($text);
-        $text = preg_replace('/[\n\s]+/', ' ', $text);
-        $text = substr($text, 0, 512);
-        $text = htmlentities($text);
+        $text = preg_replace('/\s+\n+/', ' ', htmlentities($text));
 
         if (!$text) {
             return null;
@@ -83,7 +80,7 @@ class Messages extends Record
         return $result;
     }
 
-    public static function countPull(): int
+    public static function count(): int
     {
         $database = Database::getInstance();
         $sql = 'SELECT COUNT(*) AS pull FROM ' . static::getTableName() . ';';

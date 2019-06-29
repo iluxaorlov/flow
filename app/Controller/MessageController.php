@@ -1,80 +1,78 @@
 <?php
 
-namespace Controller;
+namespace App\Controller;
 
-use Model\Messages;
+use App\Model\Messages;
 
 class MessageController extends AbstractController
 {
-    /**
-     * send a message from client
-     * if there's no post request then throw exception
-     */
     public function send()
     {
         if (!$_POST) {
-            throw new \Exceptions\NotFoundException();
+            throw new \App\Exceptions\NotFoundException();
         }
 
         $user = $this->authorizedUser;
         $text = $_POST['text'];
+        // save message to database
         $message = Messages::send($user, $text);
     }
 
-    /**
-     * count number of all messages in database and then compare with number of messages in database that client have
-     * while numbers are equal count number of all messages in database
-     * once numbers aren't equal then count difference beetwen numbers and find last insert messages
-     * if client haven't number of messages in database then find last 128 messages
-     * send messages and new number of all messages in database to client
-     * if there's no post request then throw exception
-     */
     public function pull()
     {
         if (!$_POST) {
-            throw new \Exceptions\NotFoundException();
+            throw new \App\Exceptions\NotFoundException();
         }
         
-        $client = (integer)$_POST['countPull'];
+        // number of messages that saved on client
+        $client = (integer)$_POST['count'];
 
         do {
-            $server = (integer)Messages::countPull();
+            // count number of messages in database
+            $server = (integer)Messages::count();
         } while ($server === $client);
 
-        $limit = $server - $client ?? 128;
+        if ($client) {
+            $limit = $server - $client;
+        } else {
+            $limit = 15;
+        }
+
+        // get messages from database
         $messages = Messages::pull($limit);
 
         if (!$messages) {
             return;
         }
         
-        $response = $this->view->response('message' . DIRECTORY_SEPARATOR . 'message.php', [
+        $response = $this->view->response('message/message.php', [
             'messages' => $messages
         ]);
 
-        echo json_encode(['server' => $server, 'response' => $response]);
+        echo json_encode([
+            'server' => $server,
+            'response' => $response
+        ]);
     }
 
-    /**
-     * limit is a number of messages that will be loaded from database
-     * offset is a number of messages on the page
-     * if there's no post request then throw exception
-     */
     public function load()
     {
         if (!$_POST) {
-            throw new \Exceptions\NotFoundException();
+            throw new \App\Exceptions\NotFoundException();
         }
 
+        // number of messages that will be loaded from database
         $limit = 64;
+        // number of messages on the page
         $offset = (integer)$_POST['offset'];
+        // get messages from database
         $messages = Messages::load($limit, $offset);
 
         if (!$messages) {
-            return;
+            return http_response_code(204);
         }
 
-        $response = $this->view->response('message' . DIRECTORY_SEPARATOR . 'message.php', [
+        $response = $this->view->response('message/message.php', [
             'messages' => $messages
         ]);
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Controller;
+namespace App\Controller;
 
-use View\View;
+use App\View\View;
 
 abstract class AbstractController
 {
@@ -11,8 +11,9 @@ abstract class AbstractController
 
     public function __construct()
     {
+        // find user by token from cookie
         $this->authorizedUser = UserController::findUserByToken();
-        $this->view = new View(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'templates');
+        $this->view = new View(__DIR__ . '/../../templates');
         $this->view->setUser($this->authorizedUser);
     }
 }

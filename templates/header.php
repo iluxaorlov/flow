@@ -8,7 +8,7 @@
     <meta name="keywords" content="анонимный, групповой, чат, свободное, общение, мессенджер">
     <meta name="theme-color" content="#0080ff">
     <title><?= $title ?></title>
-    <link rel="stylesheet" href="/css/app.css">
+    <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"

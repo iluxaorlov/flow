@@ -1,29 +1,30 @@
 'use strict';
 
-import app from './app.js';
+import main from './main';
 
-export default function() {
-    
-    document.getElementById('panel__input__button').addEventListener('click', function() {
-        if (app.panelTextField.value === '') {
-            app.panelTextField.focus();
-            return;
-        }
+export default (function() {
 
-        send(app.panelTextField.value);
+    main.panelTextField.addEventListener('input', function() {
+        main.textFieldAutosize();
+        main.scrollToBottom();
     });
 
-    app.panelTextField.addEventListener('input', function() {
-        app.textFieldAutosize();
-        app.scrollToBottom();
-    });
+    document.getElementById('panel__input__button').addEventListener('click', preSend);
 
-    app.panelTextField.addEventListener('keydown', function(event) {
+    main.panelTextField.addEventListener('keydown', function(event) {
         if (event.keyCode === 13) {
             event.preventDefault();
-            send(this.value);
+            preSend();
         }
     });
+
+    function preSend() {
+        if (main.panelTextField.value.trim() === '') {
+            main.panelTextField.focus();
+        } else {
+            send(main.panelTextField.value.trim());
+        }
+    }
 
     function send(text) {
         let message = create(text);
@@ -41,7 +42,7 @@ export default function() {
             message.className = 'ex';
         }
 
-        xhr.open('POST', '/send');
+        xhr.open('POST', '/send', true);
         xhr.timeout = 5000;
         xhr.send(data);
     }
@@ -56,15 +57,13 @@ export default function() {
         let message = document.createElement('p');
         message.className = 'px';
         message.innerText = text;
-        app.chat.insertBefore(message, app.chat.firstChild);
-        app.textFieldReset();
+        main.chat.insertBefore(message, main.chat.firstChild);
+        main.textFieldReset();
         return message;
     }
 
     function formatText(text) {
-        text = text.trim();
-        text = text.replace(/[\n\s]+/g, ' ');
-        text = text.slice(0, 512);
+        text = text.trim().replace(/\s+\n+/g, ' ');
 
         if (!text) {
             return null;
@@ -73,4 +72,4 @@ export default function() {
         return text;
     }
 
-}
+})();

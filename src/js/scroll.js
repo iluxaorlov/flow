@@ -1,28 +1,28 @@
 'use strict';
 
-import app from './app.js';
+import main from './main';
 
-export default function scroll() {
+export default (function() {
 
     window.addEventListener('scroll', function() {
         if (window.scrollY <= document.documentElement.scrollHeight - window.innerHeight - window.innerHeight) {
-            app.scrollButton.style.visibility = 'visible';
-            app.scrollButton.style.opacity = 1;
-            app.scrollButton.disabled = false;
+            main.scrollButton.style.visibility = 'visible';
+            main.scrollButton.style.opacity = 1;
+            main.scrollButton.disabled = false;
         }
 
         if (window.scrollY >= document.documentElement.scrollHeight - window.innerHeight) {
-            app.scrollButtonNotification.style.opacity = 0;
-            app.scrollButton.style.opacity = 0;
-            app.scrollButton.disabled = true;
+            main.scrollButtonNotification.style.opacity = 0;
+            main.scrollButton.style.opacity = 0;
+            main.scrollButton.disabled = true;
             
             setTimeout(function() {
-                app.scrollButton.style.visibility = 'hidden';
+                main.scrollButton.style.visibility = 'hidden';
             }, 250);
         }
     });
 
-    app.scrollButton.addEventListener('click', function() {
+    main.scrollButton.addEventListener('click', function() {
         let scrollInterval = setInterval(function() {
             window.scrollBy(0, Math.ceil((document.documentElement.scrollHeight - window.innerHeight - window.scrollY) / 10));
 
@@ -32,4 +32,4 @@ export default function scroll() {
         }, 1000 / 240);
     });
 
-}
+})();

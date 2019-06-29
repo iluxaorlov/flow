@@ -8,15 +8,15 @@
     <meta name="keywords" content="анонимный, групповой, чат, свободное, общение, мессенджер">
     <meta name="theme-color" content="#0080ff">
     <title>Страница не найдена</title>
-    <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap">
 </head>
 <body>
     <header id="logotype">
-        <a id="logotype__link" href="/"><img id="logotype__image" src="/img/logotype.png"></a>
+        <a id="logotype__link" href="/"><img id="logotype__image" src="./public/img/logotype.png"></a>
     </header>
     <section id="code">
-        <img id="code__image" src="/img/code.png">
+        <img id="code__image" src="./public/img/code.png">
     </section>
+    <script src="./public/js/app.js"></script>
 </body>
 </html>

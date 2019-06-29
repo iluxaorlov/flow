@@ -1,8 +1,8 @@
 <?php
 
-namespace Model;
+namespace App\Model;
 
-use Database\Database;
+use App\Database\Database;
 
 class Users extends Record
 {
@@ -52,27 +52,27 @@ class Users extends Record
         $repeat = htmlentities($requestFields['repeat']);
 
         if (!$nickname) {
-            throw new \Exceptions\InvalidArgumentException('Заполните все поля');
+            throw new \App\Exceptions\InvalidArgumentException('Заполните все поля');
         }
 
         if (!preg_match('/^[a-zA-Z0-9]+$/', $nickname)) {
-            throw new \Exceptions\InvalidArgumentException('Имя должно содержать только латинские буквы и цифры');
+            throw new \App\Exceptions\InvalidArgumentException('Имя должно содержать только латинские буквы и цифры');
         }
 
         if (self::findOneByNickname($nickname)) {
-            throw new \Exceptions\InvalidArgumentException('Пользователь с таким именем уже существует');
+            throw new \App\Exceptions\InvalidArgumentException('Пользователь с таким именем уже существует');
         }
 
         if (!$password) {
-            throw new \Exceptions\InvalidArgumentException('Заполните все поля');
+            throw new \App\Exceptions\InvalidArgumentException('Заполните все поля');
         }
 
         if (mb_strlen($password) < 8) {
-            throw new \Exceptions\InvalidArgumentException('Пароль должен состоять минимум из восьми символов');
+            throw new \App\Exceptions\InvalidArgumentException('Пароль должен состоять минимум из восьми символов');
         }
 
         if ($password !== $repeat) {
-            throw new \Exceptions\InvalidArgumentException('Пароли не совпадают');
+            throw new \App\Exceptions\InvalidArgumentException('Пароли не совпадают');
         }
 
         $user = new self;
@@ -89,21 +89,21 @@ class Users extends Record
         $password = htmlentities($requestFields['password']);
 
         if (!$nickname) {
-            throw new \Exceptions\InvalidArgumentException('Заполните все поля');
+            throw new \App\Exceptions\InvalidArgumentException('Заполните все поля');
         }
 
         if (!$password) {
-            throw new \Exceptions\InvalidArgumentException('Заполните все поля');
+            throw new \App\Exceptions\InvalidArgumentException('Заполните все поля');
         }
 
         $user = self::findOneByNickname($nickname);
 
         if (!$user) {
-            throw new \Exceptions\InvalidArgumentException('Неверный логин или пароль');
+            throw new \App\Exceptions\InvalidArgumentException('Неверный логин или пароль');
         }
 
         if (!password_verify($password, $user->getPassword())) {
-            throw new \Exceptions\InvalidArgumentException('Неверный логин или пароль');
+            throw new \App\Exceptions\InvalidArgumentException('Неверный логин или пароль');
         }
 
         $user->token = self::generateToken();

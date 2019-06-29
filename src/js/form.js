@@ -1,6 +1,6 @@
 'use strict';
 
-export default function form() {
+export default (function() {
 
     let showPassword = document.getElementById('password__section__show');
 
@@ -18,4 +18,4 @@ export default function form() {
         });
     }
 
-}
+})();

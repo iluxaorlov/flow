@@ -1,11 +1,11 @@
 <?php
 
-namespace View;
+namespace App\View;
 
 class View
 {
     private $templatesFolder;
-    private $authorizedUser;
+    private $authorizedUser = [];
 
     public function __construct(string $templatesFolder)
     {
@@ -23,7 +23,7 @@ class View
         http_response_code($responseCode);
         extract($variables);
         extract($this->authorizedUser);
-        require_once $this->templatesFolder . DIRECTORY_SEPARATOR . $template;
+        require_once $this->templatesFolder . '/' . $template;
         $response = ob_get_contents();
         ob_end_clean();
         echo $response;
@@ -34,7 +34,7 @@ class View
         ob_start();
         extract($variables);
         extract($this->authorizedUser);
-        require_once $this->templatesFolder . DIRECTORY_SEPARATOR . $template;
+        require_once $this->templatesFolder . '/' . $template;
         $response = ob_get_contents();
         ob_end_clean();
         return $response;

@@ -1,7 +1,6 @@
 <?php require_once __DIR__ . '/../header.php' ?>
-
     <header id="logotype">
-        <a id="logotype__link" href="/"><img id="logotype__image" src="/img/logotype.png"></a>
+        <a id="logotype__link" href="/"><img id="logotype__image" src="./public/img/logotype.png"></a>
     </header>
     <form id="form" action="/login" method="POST">
         <input id="nickname" name="nickname" type="text" placeholder="Имя пользователя" value="<?= $_POST['nickname'] ?>">
@@ -15,5 +14,4 @@
             <p id="form__error"><?= $error ?></p>
         <?php endif ?>
     </form>
-
 <?php require_once __DIR__ . '/../footer.php' ?>

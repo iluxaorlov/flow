@@ -1,6 +1,6 @@
 <?php
 
-namespace Database;
+namespace App\Database;
 
 class Database
 {
@@ -9,9 +9,9 @@ class Database
 
     public function __construct()
     {
-        $settings = require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Settings' . DIRECTORY_SEPARATOR . 'Database.php';
+        $settings = require_once __DIR__ . '/../Settings/Database.php';
 
-        $this->pdo = new \PDO('mysql:host=' . $settings['host'] . ';dbname=' . $settings['dbname'] . ';charset=utf8mb4',
+        $this->pdo = new \PDO('mysql:host=' . $settings['host'] . ';dbname=' . $settings['dbname'],
             $settings['user'],
             $settings['pass']
         );
