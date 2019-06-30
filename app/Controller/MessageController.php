@@ -32,10 +32,10 @@ class MessageController extends AbstractController
             $server = (integer)Messages::count();
         } while ($server === $client);
 
-        if ($client) {
-            $limit = $server - $client;
+        if ($client === 0) {
+            $limit = 128;
         } else {
-            $limit = 15;
+            $limit = $server - $client;
         }
 
         // get messages from database

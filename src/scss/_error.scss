@@ -9,3 +9,29 @@
         max-width: 320px;
     }
 }
+#error {
+    color: #ffffff;
+    text-align: center;
+    font-weight: 300;
+    font-size: 32px;
+    padding: 16px;
+}
+
+#cosmonaut {
+    max-width: 196px;
+    width: calc(50vw - 16px);
+    position: absolute;
+    right: 16px;
+    bottom: 32px;
+    animation: fly 2s infinite alternate ease-in-out;
+}
+
+@keyframes fly {
+    0% {
+        transform: translateY(0);
+    }
+    
+    100% {
+        transform: translateY(16px);
+    }
+}
