@@ -13,7 +13,7 @@
 </head>
 <body>
     <header id="logotype">
-        <a id="logotype__link" href="/"><img id="logotype__image" src="./public/img/logotype.png"></a>
+        <a id="logotype__link" href="/"><img id="logotype__image" src="./public/img/logotype.svg"></a>
     </header>
     <section id="error">
         <h1 id="error__head">Ай! Ошибка</h1>
