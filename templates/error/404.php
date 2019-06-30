@@ -9,13 +9,16 @@
     <meta name="theme-color" content="#0080ff">
     <title>Страница не найдена • Flux</title>
     <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400">
 </head>
 <body>
     <header id="logotype">
         <a id="logotype__link" href="/"><img id="logotype__image" src="./public/img/logotype.png"></a>
     </header>
-    <h1 id="error">Страница не найдена</h1>
+    <section id="error">
+        <h1 id="error__head">Ай! Ошибка</h1>
+        <p id="error__body">Данная страница была удалена, либо никогда не существовала</p>
+    </section>
     <img id="cosmonaut" src="./public/img/cosmonaut.png">
     <script src="./public/js/app.js"></script>
 </body>

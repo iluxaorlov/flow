@@ -1,20 +1,17 @@
-#code {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 51px;
-
-    #code__image {
-        width: calc(100vw - 32px);
-        max-width: 320px;
-    }
-}
-#error {
+#error__head {
     color: #ffffff;
     text-align: center;
     font-weight: 300;
     font-size: 32px;
     padding: 16px;
+}
+
+#error__body {
+    color: #ffffff;
+    text-align: center;
+    font-weight: 400;
+    font-size: 16px;
+    padding: 0 16px;
 }
 
 #cosmonaut {
@@ -24,6 +21,7 @@
     right: 16px;
     bottom: 32px;
     animation: fly 2s infinite alternate ease-in-out;
+    opacity: 0.5;
 }
 
 @keyframes fly {
